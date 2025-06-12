@@ -2,7 +2,7 @@ import { Post } from '../../(types)';
 import API from '../../(lib)/api';
 import { notFound } from 'next/navigation';
 
-interface Props {
+interface PageProps {
   params: { id: string };
 }
 
@@ -12,11 +12,11 @@ async function fetchPost(id: string): Promise<Post | null> {
     return res.data;
   } catch (err){
     console.log(err);
-    return null
+    return null 
   }
 }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function ArticlePage({ params }: PageProps) {
   const post = await fetchPost(params.id);
 
   if (!post) {
