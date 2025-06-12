@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
 exports.createUser = async (req, res) =>{
-    const {username, email, password, role} = req.body();
+    const {username, email, password, role} = req.body;
 
     try {
         const existingUser = await User.findOne({email})
@@ -33,7 +33,7 @@ exports.createUser = async (req, res) =>{
 };
 
 exports.getUser = async (req, res) =>{
-    const {email, password} = req.body();
+    const {email, password} = req.body;
 
     try{
         const user = await User.findOne({email});

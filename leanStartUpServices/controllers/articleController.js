@@ -42,7 +42,7 @@ exports.getAllArticles = async (req, res) =>{
 
 exports.getArticleById = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Article.findById(req.params.id);
     if (!post) return res.status(404).json({ message: 'Article introuvable' });
 
     res.status(200).json(post);
