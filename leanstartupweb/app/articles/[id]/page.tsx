@@ -2,10 +2,6 @@ import { Post } from '../../(types)';
 import API from '../../(lib)/api';
 import { notFound } from 'next/navigation';
 
-interface PageProps {
-  params: { id: string };
-}
-
 async function fetchPost(id: string): Promise<Post | null> {
   try {
     const res = await API.get<Post>(`article/${id}`);
