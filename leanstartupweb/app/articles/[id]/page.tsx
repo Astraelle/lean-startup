@@ -17,7 +17,6 @@ async function fetchPost(id: string): Promise<Post | null> {
 }
 
 export default async function ArticlePage({ params }: Props) {
-  console.log('params: ', params);
   const post = await fetchPost(params.id);
 
   if (!post) {
