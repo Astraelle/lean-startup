@@ -4,7 +4,7 @@ import Link from "next/link";
 
 async function fetchPosts(): Promise<Post[]> {
   try {
-    const res = await API.get("/posts");
+    const res = await API.get("/article/get-article");
     return res.data;
   } catch (err) {
     console.error("Erreur lors de la récupération des articles", err);

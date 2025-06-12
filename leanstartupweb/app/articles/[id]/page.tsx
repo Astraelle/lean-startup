@@ -8,14 +8,16 @@ interface Props {
 
 async function fetchPost(id: string): Promise<Post | null> {
   try {
-    const res = await API.get(`/posts/${id}`);
+    const res = await API.get<Post>(`article/${id}`);
     return res.data;
-  } catch {
-    return null;
+  } catch (err){
+    console.log(err);
+    return null
   }
 }
 
 export default async function ArticlePage({ params }: Props) {
+  console.log('params: ', params);
   const post = await fetchPost(params.id);
 
   if (!post) {

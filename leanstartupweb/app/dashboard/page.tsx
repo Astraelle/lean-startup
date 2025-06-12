@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getAuthUser } from '../(utils)/auth';
-import ArticleForm from '../(components)/article/page';
+import ArticleForm from '../../(components)/article/page';
 
 export default function DashboardPage() {
   const router = useRouter();

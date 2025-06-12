@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import API from '../../(lib)/api';
+import API from '../../app/(lib)/api';
 
 export default function ArticleForm() {
   const [title, setTitle] = useState('');
@@ -13,7 +13,7 @@ export default function ArticleForm() {
     setMessage('');
 
     try {
-      const res = await API.post('/posts', { title, content });
+      const res = await API.post('/article/create-article', { title, content });
 
       if (res.status === 201) {
         setMessage('✅ Article créé avec succès !');
