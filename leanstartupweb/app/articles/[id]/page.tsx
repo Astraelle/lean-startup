@@ -12,13 +12,19 @@ async function fetchPost(id: string): Promise<Post | null> {
   }
 }
 
-export default async function ArticlePage({ params }: {params: { id: string }}) {
-  const post = await fetchPost(params.id);
-
+export default async function ArticlePage({ 
+  params 
+}: {
+  params: Promise<{ id: string }>
+}) {
+  // Attendre la résolution de params
+  const resolvedParams = await params;
+  const post = await fetchPost(resolvedParams.id);
+  
   if (!post) {
     notFound(); // Affiche la page 404 si article introuvable
   }
-
+  
   return (
     <main className="p-10 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
@@ -31,3 +37,4 @@ export default async function ArticlePage({ params }: {params: { id: string }}) 
     </main>
   );
 }
+
