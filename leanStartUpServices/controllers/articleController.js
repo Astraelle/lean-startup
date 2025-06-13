@@ -1,18 +1,27 @@
 const Article = require('../models/article.model');
 
 exports.createArticle = async (req, res) =>{
-    const {title, content} = req.body;
+    const {title, imageUrl, blocks} = req.body;
     
-    if(!title || !content){
+    if(!title || !imageUrl || !blocks || !Array.isArray(blocks)){
         return res.status(400).json({
             message: "Titre et contenu requis"
         });
     }
 
+    blocks.forEach(bloc =>{
+        if(!bloc.title || !bloc.content){
+            return res.status(400).json({
+                message: "Le bloc doit contenir un titre est un contenu"
+            })
+        }
+    })
+
     try {
         const newArticle = new Article({
             title,
-            content,
+            imageUrl,
+            blocks,
             authorId: req.user.id
         });
 

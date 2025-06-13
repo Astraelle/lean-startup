@@ -1,5 +1,5 @@
-import { Post } from "../(types)";
-import API from "../(lib)/api";
+import { Post } from "../../(types)";
+import API from "../../(lib)/api";
 import Link from "next/link";
 
 async function fetchPosts(): Promise<Post[]> {

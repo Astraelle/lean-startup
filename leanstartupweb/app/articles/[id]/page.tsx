@@ -1,5 +1,5 @@
-import { Post } from '../../(types)';
-import API from '../../(lib)/api';
+import { Post } from '../../../(types)';
+import API from '../../../(lib)/api';
 import { notFound } from 'next/navigation';
 
 async function fetchPost(id: string): Promise<Post | null> {

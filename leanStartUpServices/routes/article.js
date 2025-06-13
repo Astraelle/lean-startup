@@ -1,5 +1,4 @@
 const express = require('express');
-const Article = require('../models/article.model');
 const auth = require('../middlewares/auth');
 const isAdmin = require('../middlewares/admin');
 const { getAllArticles, createArticle, getArticleById } = require('../controllers/articleController');

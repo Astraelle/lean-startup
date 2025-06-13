@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const articleSchema = new mongoose.Schema({
+const blockSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -9,7 +9,22 @@ const articleSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true,
+        trim: true
+    }
+})
+
+const articleSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+        trim: true
     },
+    imageUrl: {
+        type: String,
+        required: true,
+    },
+    content: [blockSchema],
+    
     authorId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -18,5 +33,7 @@ const articleSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+
 
 module.exports = mongoose.model('Article', articleSchema);

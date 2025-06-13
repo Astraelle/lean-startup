@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import API from '../../app/(lib)/api';
+import API from '../../(lib)/api';
 
 export default function ArticleForm() {
   const [title, setTitle] = useState('');
