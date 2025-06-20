@@ -23,7 +23,10 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    content: [blockSchema],
+    content: {
+        type: String,
+    },
+    // [blockSchema],
     
     authorId: {
         type: mongoose.Schema.Types.ObjectId,
