@@ -1,5 +1,5 @@
 // utils/auth.ts
-import { User } from '../../(types)';
+import { User } from '../(types)';
 
 export function getAuthUser(): User | null {
   if (typeof window === 'undefined') return null;
