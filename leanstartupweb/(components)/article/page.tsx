@@ -7,6 +7,22 @@ export default function ArticleForm() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [message, setMessage] = useState('');
+  const [blocks, setBlocks] = useState([{ title: '', content: '' }]);
+
+
+  const addBlock = () =>{
+    setBlocks([...blocks, { title: '', content: '' }])
+  }
+
+  const handleBlockChange = (
+    index: number,
+    field: 'title' | 'content',
+    value: string
+  ) =>{
+    const updatedBlocks = [...blocks];
+    updatedBlocks[index][field] = value;
+    setBlocks(updatedBlocks);
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +68,37 @@ export default function ArticleForm() {
         className="w-full border p-2 rounded mb-6 h-40"
         required
       />
+
+      <h3 className="font-semibold mt-6 mb-2">Blocs de contenu</h3>
+      {blocks.map((block, index) => (
+        <div key={index} className="mb-4 border rounded p-4">
+          <label className="block font-medium mb-1">Titre du bloc</label>
+          <input
+            type="text"
+            value={block.title}
+            onChange={(e) => handleBlockChange(index, 'title', e.target.value)}
+            className="w-full border p-2 rounded mb-2"
+            required
+          />
+
+          <label className="block font-medium mb-1">Texte du bloc</label>
+          <textarea
+            value={block.content}
+            onChange={(e) => handleBlockChange(index, 'content', e.target.value)}
+            className="w-full border p-2 rounded h-28"
+            placeholder="Utilisez **gras** pour mettre du texte en gras"
+            required
+          />
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={addBlock}
+        className="bg-gray-200 text-sm px-3 py-1 rounded hover:bg-gray-300"
+      >
+        ➕ Ajouter un bloc
+      </button>
+
 
       <button
         type="submit"

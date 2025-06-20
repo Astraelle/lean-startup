@@ -6,6 +6,7 @@ import styles from "./header.module.css";
 
 export default function Header(){
     const [isMobile, setIsMobile] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() =>{
 
@@ -20,26 +21,31 @@ export default function Header(){
     return(
         <>
         {isMobile ?
-        <header className={styles.headerMobile}>
+        <header className="">
             <nav>
-                <ul className={styles.linkMobile}>
-                    <li><a href={"/about"}>Qui sommes nous ?</a></li>
-                    <li><a href={""}>Nos fonctionnalités</a></li>
-                    <li><a href={"/"}><Image src="/Kollab_logo_icon.webp" alt="Logo de Kollab" width={60} height={60}/></a></li>
-                    <li><a href={""}>Nos ressources</a></li>
-                    <li><a href={""}>Nos abonnements</a></li>
+                <ul className="">
+                    
                 </ul>
             </nav>
         </header>
         : 
-        <header>
-            <a href={"/"}><Image src="/Kollab_logo_icon.webp" alt="Logo de Kollab" width={50} height={50}/></a>
-            <nav className="nav-home">
-                <ul className="link-home">
-                    <li><a href={"/about"}>Qui sommes nous ?</a></li>
-                    <li><a href="">Nos fonctionnalités</a></li>
-                    <li><a href="">Nos ressources</a></li>
-                    <li><a href="">Nos abonnements</a></li>
+        <header className="h-3/4 w-screen grid grid-cols-5 justify-items-center items-center bg-black text-white">
+            <nav className="">
+                <ul className="">
+                    <div onClick={() =>setIsOpen(true)} className="grid grid-cols-2 grid-rows-1 gap-2 items-center">
+                        <p>Ressources</p>
+                        <Image src="/Vector.svg" alt="Flèche menu dépliant" width={20} height={20}/>
+                    </div>
+                    {isOpen ?
+                    <li>
+                        <a href={"/blogs"}></a>
+                        <a href={"/temoignages"}></a>
+                        <a href={"/faq"}></a>
+                        <a href={"/newsletter"}></a>
+                    </li>
+                    :
+                    <li></li>
+                    }
                 </ul>
             </nav>
             <ul>
