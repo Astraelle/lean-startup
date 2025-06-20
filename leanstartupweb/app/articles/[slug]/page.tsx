@@ -10,7 +10,6 @@ type WPPost = {
 
 type PageProps = {
   params: Promise<{ slug: string }>;
-  // searchParams?: { [key: string]: string | string[] };
 };
 
 export default async function ArticlePage({ params }: PageProps){
@@ -26,7 +25,6 @@ export default async function ArticlePage({ params }: PageProps){
   }
 
   const post = posts[0];
-  // params: Promise<{ id: string }>
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       <h1
