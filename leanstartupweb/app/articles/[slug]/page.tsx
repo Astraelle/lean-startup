@@ -22,10 +22,10 @@ type WPPost = {
 
 type PageProps = {
   params: { slug: string }; // Attention, c’est toujours string ici
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] };
 };
 
-export default async function ArticlePage({ params, searchParams }: PageProps){
+export default async function ArticlePage({ params }: PageProps){
   const res = await fetch(
     `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?slug=${params.slug}`,
     { next: { revalidate: 60 } }
