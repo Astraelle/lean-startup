@@ -4,6 +4,7 @@
 import styles from "./page.module.css";
 
  
+<<<<<<< Updated upstream
 // import { useState, useEffect } from 'react'
 // import { subscribeUser, unsubscribeUser, sendNotification } from './actions'
  
@@ -11,6 +12,13 @@ import styles from "./page.module.css";
 export default function Home() {
   return(
     <div className={styles.home}>homepage</div>
+=======
+import KollabLandingPage from './components/KollabLandingPage'
+
+export default function Home() {
+  return (
+    <KollabLandingPage />
+>>>>>>> Stashed changes
   )
 
   // function urlBase64ToUint8Array(base64String: string) {
