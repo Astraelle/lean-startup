@@ -1,16 +1,4 @@
-import { Post } from '../../../(types)';
-import API from '../../../(lib)/api';
 import { notFound } from 'next/navigation';
-
-async function fetchPost(id: string): Promise<Post | null> {
-  try {
-    const res = await API.get<Post>(`article/${id}`);
-    return res.data;
-  } catch (err){
-    console.log(err);
-    return null 
-  }
-}
 
 // Wordpress
 type WPPost = {
@@ -21,13 +9,14 @@ type WPPost = {
 };
 
 type PageProps = {
-  params: { slug: string }; // Attention, c’est toujours string ici
-  searchParams?: { [key: string]: string | string[] };
+  params: Promise<{ slug: string }>;
+  // searchParams?: { [key: string]: string | string[] };
 };
 
 export default async function ArticlePage({ params }: PageProps){
+  const wpParams = await params
   const res = await fetch(
-    `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?slug=${params.slug}`,
+    `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?slug=${(wpParams.slug)}`,
     { next: { revalidate: 60 } }
   );  
   const posts: WPPost[] = await res.json();
