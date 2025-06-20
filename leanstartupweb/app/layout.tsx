@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../(components)/header/page";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Header from "../(components)/header/header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +16,8 @@ export default function RootLayout({
     <html lang="fr">
       <body>
         <Header/>
-        <main>{children}</main>
+        {children}
         <footer></footer>
-        <GoogleAnalytics gaId="G-XYZ"/>
       </body>
     </html>
   );
