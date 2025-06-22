@@ -29,7 +29,7 @@ export default async function ArticlesPage() {
   const posts: WPPost[] = await res.json();
   return(
     <>
-      <div className="max-w-3xl mx-auto px-4 py-6">
+      <div className="max-w-3xl mx-auto px-4 py-6 bg-black">
       <h1 className="text-3xl font-bold mb-6">Articles</h1>
       {posts.map((post) => (
         <div key={post.id} className="mb-6">
