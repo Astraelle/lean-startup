@@ -1,7 +1,9 @@
 'use client'
  
+import KollabLandingPage from './components/KollabLandingPage'
+
 export default function Home() {
-  return(
-    <div className="">homepage</div>
+  return (
+    <KollabLandingPage />
   )
 }
