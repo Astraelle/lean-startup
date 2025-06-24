@@ -205,7 +205,7 @@ export default function HomePage(){
                     <Link href={""} className='w-30 border rounded-3xl grid justify-items-center items-center'>Commencer</Link>
                 </div>
                 <div className='bg-[#1A1B19] border w-[90%] grid p-10 text-white relative'>
-                    <div className='absolute -top-5 left-50'>
+                    <div className='absolute -top-5 left-1/2 -translate-x-1/2'>
                         <p className='bg-[#32BF84] w-70 h-10 text-center text-white grid items-center rounded-3xl -rotate-1'>L’Abonnement DONT TU AS BESOIN</p>
                     </div>
                     <div className='absolute bottom-3 right-3 w-10 h-10 bg-[#32BF84] rounded-full'></div>
