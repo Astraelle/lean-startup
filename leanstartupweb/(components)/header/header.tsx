@@ -49,7 +49,7 @@ export default function Header(){
         </div>
         
         : 
-        <header className="h-20 w-screen grid grid-cols-3 justify-items-center items-center fixed z-99 bg-white">
+        <header className="h-20 w-screen grid grid-cols-[300px_1fr_350px] justify-items-center items-center fixed z-99 bg-white">
             <nav className="w-full">
                 <ul className="w-full grid grid-cols-3 justify-items-center items-center">
                     <li><a href="/articles">Blog</a></li>
