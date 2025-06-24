@@ -1,5 +1,15 @@
 import Link from 'next/link';
 import Image from "next/image";
+import { Carousel } from '../carrousel/carrousel';
+import FAQ from '../faq/faq';
+
+const images = [
+    '/carousel/carousel1.jpg',
+    '/carousel/carousel2.jpg',
+    '/carousel/carousel3.jpg',
+    '/carousel/carousel4.jpg',
+    '/carousel/carousel5.jpg',
+]
 
 export default function HomePage(){
     return(
@@ -177,12 +187,88 @@ export default function HomePage(){
                 </div>
             </section>
 
-            <div className='h-20 pt-40 pl-20'>
+            <div className='h-20 pt-40 pl-10'>
                 <h2 className='text-5xl font-bold'>Devenez Kollab +,<br/> choisissez selon vos besoins </h2>
             </div>
 
-            <section className='h-[75vh] grid grid-cols-[1fr_50vw] pt-20 justify-items-center'>
-                <div></div>
+            <section className='h-[75vh] grid grid-cols-[1fr_50vw] pt-40 justify-items-center'>
+                <div className='border w-[90%] grid gap-2 p-10'>
+                    <h3 className='text-3xl font-semibold'>Essensiel (Gratuit)</h3>
+                    <p>Rejoignez gratuitement la communauté Kollab</p>
+                    <p className='text-6xl font-bold'>0.00€</p>
+                    <ul className='list-disc pl-4'>
+                        <li>Accès limités à nos ressources</li>
+                        <li>Droit à 5 utilisation d’IA/mois</li>
+                        <li>5% de réductions sur nos coworkings partenaires</li>
+                        <li>Accès restreint à l’application</li>
+                    </ul>
+                    <Link href={""} className='w-30 border rounded-3xl grid justify-items-center items-center'>Commencer</Link>
+                </div>
+                <div className='bg-[#1A1B19] border w-[90%] grid p-10 text-white relative'>
+                    <div className='absolute -top-5 left-50'>
+                        <p className='bg-[#32BF84] w-70 h-10 text-center text-white grid items-center rounded-3xl -rotate-1'>L’Abonnement DONT TU AS BESOIN</p>
+                    </div>
+                    <div className='absolute bottom-3 right-3 w-10 h-10 bg-[#32BF84] rounded-full'></div>
+                    <div className='absolute bottom-3 right-20 w-10 h-10 bg-[#247AFD] rounded-full'></div>
+                    <div className='absolute bottom-20 right-3 w-10 h-10 bg-[#FFAB0F] rounded-full'></div>
+                    <h3 className='text-3xl font-semibold'>Kollab +</h3>
+                    <p>Profitez de la pleine puissance de Kollab</p>
+                    <p className='text-6xl font-bold'>19.99€</p>
+                    <ul className='list-disc pl-4'>
+                        <li>Accès complet à l’application</li>
+                        <li>Utilisation de notre IA en illimité</li>
+                        <li>Accès à toute notre bibliothèque de ressources</li>
+                        <li>Accès gratuit à nos espaces de coworking partenaires</li>
+                        <li>Accès aux espaces de coworking partenaires dans plus de 60 pays</li>
+                        <li>Accès gratuit à 1 meet-up séminaire par mois organisé par Kollab</li>
+                    </ul>
+                    <Link href={""} className='w-30 border rounded-3xl grid justify-items-center items-center'>Commencer</Link>
+                </div>
+            </section>
+
+            <section className='pt-20 grid grid-rows-2 h-screen'>
+                <div className='h-full'>
+                    <Carousel images={images}/>
+                </div>
+                <div className='text-center pt-20 text-6xl font-bold'>
+                    <h2>Déjà 10 000<br/> Kollaborateurs inscrits !</h2>
+                </div>
+            </section>
+
+            <section className='h-screen bg-[#1A1B19] grid grid-rows-[100px_1fr] justify-items-center pt-20'>
+                <div className='grid grid-cols-[45vw_1fr] w-[90%] text-white'>
+                    <h2 className='text-5xl font-bold'>Qui est derrière Kollab ?</h2>
+                    <p>Une équipe d’indépendants, comme toi, qui a connu l’isolement et la galère… et<br/> qui a décidé d’agir.<br/> Kollab est né d’un besoin simple : rester libre, sans être seul·e.</p>
+                </div>
+                <div className='bg-[#D9D9D9] h-[90%] w-[90%]'>
+
+                </div>
+            </section>
+
+            <section className='h-screen pt-20 grid grid-cols-[40vw_1fr] justify-items-center'>
+                <div>
+                    <h2 className='text-4xl font-bold'>Une question ?<br/> On a sûrement la<br/> réponse.</h2>
+                    <p>Tu n’es pas le premier à te la poser (et tu ne seras pas le dernier).</p>
+                </div>
+                <div className='w-full'>
+                    <FAQ/>
+                </div>
+            </section>
+
+            <section className='w-[90%] h-[80vh] bg-[#1A1B19] m-auto grid justify-items-center grid-cols-[50vw_1fr] pt-20'>
+                <div className='text-white grid grid-rows-[50px_100px_15px_50px] items-center'>
+                    <div>
+                        <p className='bg-[#32BF84] w-30 h-10 text-center text-white grid items-center rounded-3xl -rotate-1'>#JamaisSeul</p>
+                    </div>
+                    <h2 className='text-5xl font-bold'>Deviens Kollaber !</h2>
+                    <p>Rencontre, échange, collabore.</p>
+                    <div>
+                        <p className='bg-white w-50 h-10 text-center grid items-center rounded-3xl text-black mt-100'>Je m’inscris maintenant</p>
+                    </div>
+                </div>
+                <div className='grid justify-items-center w-[90%] overflow-hidden'>
+                    <img src="/sec4img.png" alt="" />
+                </div>
             </section>
         </>
     )
