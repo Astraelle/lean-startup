@@ -29,23 +29,27 @@ export default async function ArticlesPage() {
   const posts: WPPost[] = await res.json();
   return(
     <>
-      <div className="max-w-3xl mx-auto px-4 py-6 bg-black">
-      <h1 className="text-3xl font-bold mb-6">Articles</h1>
-      {posts.map((post) => (
-        <div key={post.id} className="mb-6">
-          <Link href={`/articles/${post.slug}`}>
-            <div
-              className="text-xl font-semibold text-blue-600 hover:underline"
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            />
-          </Link>
-          <div
-            className="text-gray-600"
-            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-          />
+      <section className="pt-20 w-[90%] m-auto">
+        <h2 className="text-3xl font-bold mb-6">Articles du moment</h2>
+        <div className="grid grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <div key={post.id} className="border border-[#1A1B191A]">
+              <img src="/articleimg.jpg" alt="" />
+                <div
+                  className="text-xl font-semibold hover:underline p-10"
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+              <div
+                className="p-10"
+                dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+              />
+              <Link href={`/articles/${post.slug}`} className="pl-10 text-[#32BF84]">Lire l'article {">"}</Link>
+            </div>
+
+          ))}
+
         </div>
-      ))}
-    </div>
+      </section>
     </>
     
   )
