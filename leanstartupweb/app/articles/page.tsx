@@ -19,14 +19,24 @@ type WPPost = {
   excerpt: { rendered: string };
 };
 
-export default async function ArticlesPage() {
+type PageProps = {
+    searchParams: Promise<{ page?: string }>
+}
 
-  const url = 'https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed';
+export default async function ArticlesPage({ searchParams }: PageProps) {
+
+  const searchParamsPages = await searchParams;
+  const currentPage = parseInt(searchParamsPages.page || "1", 10);
+  const perPage = 6;
+  const url = `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${currentPage}`;
+  // const url = 'https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed';
   const res = await fetch(url, {
     next: { revalidate: 60 }, // ISR support in App Router
   });
 
   const posts: WPPost[] = await res.json();
+  const totalPages = parseInt(res.headers.get("x-wp-totalpages") || "1");
+
   return(
     <>
       <section className="pt-20 w-[90%] m-auto">
@@ -48,6 +58,19 @@ export default async function ArticlesPage() {
 
           ))}
 
+        </div>
+        <div className="flex justify-center mt-10 space-x-2">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <Link
+              key={page}
+              href={`/articles?page=${page}`}
+              className={`px-4 py-2 border rounded ${
+                page === currentPage ? "bg-[#32BF84] text-white" : "text-gray-700"
+              }`}
+            >
+              {page}
+            </Link>
+          ))}
         </div>
       </section>
     </>
