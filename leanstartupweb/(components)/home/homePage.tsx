@@ -227,8 +227,8 @@ export default function HomePage(){
             </section>
 
             <section className='pt-20 grid grid-rows-2 h-screen'>
-                <div className='h-full'>
-                    <Carousel images={images}/>
+                <div className='h-full w-[90%] m-auto'>
+                    <Carousel images={images}/> 
                 </div>
                 <div className='text-center pt-20 text-6xl font-bold'>
                     <h2>Déjà 10 000<br/> Kollaborateurs inscrits !</h2>

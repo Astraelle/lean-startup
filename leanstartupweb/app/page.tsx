@@ -1,8 +1,5 @@
 'use client'
  
-import Link from 'next/link';
-import Image from "next/image";
-import KollabLandingPage from './components/KollabLandingPage'
 import HomePage from '../(components)/home/homePage'
 import { useEffect, useState } from 'react';
 
@@ -29,6 +26,5 @@ export default function Home() {
       // <></>
       }
     </>
-    // <KollabLandingPage />
   )
 }
