@@ -29,9 +29,9 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
   const currentPage = parseInt(searchParamsPages.page || "1", 10);
   const perPage = 6;
   const url = `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${currentPage}`;
-  // const url = 'https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed';
   const res = await fetch(url, {
     next: { revalidate: 60 }, // ISR support in App Router
+    cache: 'force-cache',
   });
 
   const posts: WPPost[] = await res.json();
@@ -45,15 +45,17 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
           {posts.map((post) => (
             <div key={post.id} className="border border-[#1A1B191A]">
               <img src="/articleimg.jpg" alt="" />
-                <div
-                  className="text-xl font-semibold hover:underline p-10"
-                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                />
+                <Link href={`/articles/${post.slug}`} prefetch>
+                  <div
+                    className="text-xl font-semibold hover:underline p-10"
+                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                  />
+                </Link>
               <div
                 className="p-10"
                 dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
               />
-              <Link href={`/articles/${post.slug}`} className="pl-10 text-[#32BF84]">Lire l'article {">"}</Link>
+              <Link href={`/articles/${post.slug}`} className="pl-10 text-[#32BF84]" prefetch>Lire l'article {">"}</Link>
             </div>
 
           ))}
@@ -65,8 +67,9 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
               key={page}
               href={`/articles?page=${page}`}
               className={`px-4 py-2 border rounded ${
-                page === currentPage ? "bg-[#32BF84] text-white" : "text-gray-700"
+                page === currentPage ? "bg-[#32BF84] text-white" : "text-gray-700 hover:bg-[#32BF84] hover:text-white"
               }`}
+              prefetch
             >
               {page}
             </Link>
