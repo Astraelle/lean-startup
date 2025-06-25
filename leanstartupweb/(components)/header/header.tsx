@@ -24,7 +24,9 @@ export default function Header(){
         <div className="fixed z-99 bg-white">
             <header className="h-20 w-screen grid grid-cols-2 justify-items-center items-center">
                 <div className="grid justify-items-start w-3/4">
-                    <Image src="/Kollab_logo_nobaseline.png" alt="" width={150} height={150}/>
+                    <a href="/">
+                        <Image src="/Kollab_logo_nobaseline.png" alt="" width={150} height={150}/>
+                    </a>
                 </div>
                 <div className="grid justify-items-end w-3/4 text-3xl" onClick={() => setIsOpen(!isOpen)}>☰</div>
             </header>
