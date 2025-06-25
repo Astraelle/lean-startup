@@ -1,6 +1,8 @@
 'use client'
  
-import HomePage from '../(components)/home/homePage'
+import HomePage from '../(components)/home/homePage';
+import HomePageMobile from '../(components)/home/homePageMobile';
+
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -20,7 +22,7 @@ export default function Home() {
   return (
     <>
       {isMobile ?
-      <div></div>
+      <HomePageMobile />
       :
       <HomePage/>
       // <></>
