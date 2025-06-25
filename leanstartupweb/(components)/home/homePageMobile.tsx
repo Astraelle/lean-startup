@@ -1,8 +1,8 @@
 export default function homePageMobile(){
     return(
         <>
-            <section>
-                <img src="/independanthero.png" alt="" />
+            <section className="bg-[url(/independanthero.png)] object-center h-screen">
+                
             </section>
         </>
     )

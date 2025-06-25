@@ -34,7 +34,7 @@ export default function Header(){
             <div className="h-[90vh] z-99 grid grid-rows-[200px_1fr] justify-items-center">
                 <ul className="w-5/6 h-50 grid grid-rows-3 justify-items-start items-center">
                     <li><a href="/articles">Blog</a></li>
-                    <li><a href="/temoignages">Témoignages</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=nXcAZMJ9QG4">Témoignages</a></li>
                     <li><a href="/offres">Nos Offres</a></li>
                 </ul>
                 <div className="w-full h-full grid items-center justify-items-center">
@@ -55,7 +55,7 @@ export default function Header(){
             <nav className="w-full">
                 <ul className="w-full grid grid-cols-3 justify-items-center items-center">
                     <li><a href="/articles">Blog</a></li>
-                    <li><a href="/temoignages">Témoignages</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=nXcAZMJ9QG4">Témoignages</a></li>
                     <li><a href="/offres">Nos Offres</a></li>
                 </ul>
             </nav>
