@@ -86,7 +86,6 @@ export default function HomePage(){
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 <div><button><Link href={"/"} className='text-white'>Découvrir Kollab+</Link></button></div>
                 <div>
@@ -237,6 +236,7 @@ export default function HomePage(){
 
             <section className='h-screen bg-[#1A1B19] grid grid-rows-[100px_1fr] justify-items-center pt-20'>
                 <div className='grid grid-cols-[45vw_1fr] w-[90%] text-white'>
+
                     <h2 className='text-5xl font-bold'>Qui est derrière Kollab ?</h2>
                     <p>Une équipe d’indépendants, comme toi, qui a connu l’isolement et la galère… et<br/> qui a décidé d’agir.<br/> Kollab est né d’un besoin simple : rester libre, sans être seul·e.</p>
                 </div>
@@ -260,6 +260,7 @@ export default function HomePage(){
                     <div>
                         <p className='bg-[#32BF84] w-30 h-10 text-center text-white grid items-center rounded-3xl -rotate-1'>#JamaisSeul</p>
                     </div>
+
                     <h2 className='text-5xl font-bold'>Deviens Kollaber !</h2>
                     <p>Rencontre, échange, collabore.</p>
                     <div>
