@@ -7,7 +7,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SignUp() {
-  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +19,7 @@ export default function SignUp() {
     setError('');
 
     try {
-      const res = await API.post('/auth/signup', { name, email, password });
+      const res = await API.post('/auth/register', { userName, email, password });
       const { token, user } = res.data;
       
       localStorage.setItem('token', token);
@@ -41,7 +41,7 @@ export default function SignUp() {
   };
 
   return (
-    <main className="min-h-screen flex pt-20">
+    <div className="min-h-screen flex pt-20">
       {/* Côté gauche - Formulaire */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 lg:px-16 bg-white">
         <div className="max-w-md w-full">
@@ -115,18 +115,18 @@ export default function SignUp() {
             )}
 
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
                 Nom et prénom*
               </label>
               <input
-                id="name"
-                name="name"
+                id="username"
+                name="username"
                 type="text"
-                autoComplete="name"
+                autoComplete="username"
                 required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Entrez votre nom et prénom"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Entrez votre username"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
               />
             </div>
@@ -204,6 +204,6 @@ export default function SignUp() {
           className="object-cover w-full h-full"
         />
       </div>
-    </main>
+    </div>
   );
 }

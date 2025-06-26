@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import API from '../../(lib)/api';
 import { Eye, EyeOff, Check } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -48,7 +47,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen flex pt-20">
+    <div className="min-h-screen flex pt-20">
       {/* Côté gauche - Formulaire */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 lg:px-16 bg-white">
         <div className="max-w-md w-full">
@@ -190,7 +189,7 @@ export default function LoginPage() {
               type="submit"
               className="w-full py-3 px-4 border border-transparent rounded-full text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
             >
-              S'inscrire
+              Se connecter
             </button>
           </form>
 
@@ -212,6 +211,6 @@ export default function LoginPage() {
           className="object-cover w-full h-full"
         />
       </div>
-    </main>
+    </div>
   );
 }
