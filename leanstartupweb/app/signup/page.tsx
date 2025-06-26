@@ -7,7 +7,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SignUp() {
-  const [userName, setUserName] = useState('');
+  const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +19,7 @@ export default function SignUp() {
     setError('');
 
     try {
-      const res = await API.post('/auth/register', { userName, email, password });
+      const res = await API.post('/auth/register', { username, email, password });
       const { token, user } = res.data;
       
       localStorage.setItem('token', token);
@@ -124,7 +124,7 @@ export default function SignUp() {
                 type="text"
                 autoComplete="username"
                 required
-                value={userName}
+                value={username}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="Entrez votre username"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
