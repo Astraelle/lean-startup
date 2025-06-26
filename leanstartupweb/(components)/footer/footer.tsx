@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 
@@ -53,9 +54,9 @@ export default function Footer(){
                 <div className="grid grid-cols-[1fr_30vw] text-xs border-t pt-5 border-[#1A1B191A] mt-2">
                     <p>© 2025 Kollab. Tous droits réservés.</p>
                     <div className="grid grid-cols-3 justify-items-center">
-                        <img src="/tiktok.svg" alt="" />
-                        <img src="/instagram.svg" alt="" />
-                        <img src="/youtube.svg" alt="" />
+                        <Link href={"https://www.tiktok.com/@kollab_independants?utm_campaignfooter"} target="_blank"><img src="/tiktok.svg" alt="" /></Link>
+                        <Link href={"https://www.instagram.com/kollab_dc"} target="_blank"><img src="/instagram.svg" alt="" /></Link>
+                        <Link href={"https://www.youtube.com/@Kollab-independant?uutm_medium=website"} target="_blank"><img src="/youtube.svg" alt="" /></Link>
                     </div>
                 </div>
             </footer>
@@ -98,9 +99,9 @@ export default function Footer(){
                     <p>© 2025 Kollab. Tous droits réservés.</p>
                     <div></div>
                     <div className="grid grid-cols-3 justify-items-center">
-                        <img src="/tiktok.svg" alt="" />
-                        <img src="/instagram.svg" alt="" />
-                        <img src="/youtube.svg" alt="" />
+                        <Link href={"https://www.tiktok.com/@kollab_independants?utm_campaignfooter"} target="_blank"><img src="/tiktok.svg" alt="" /></Link>
+                        <Link href={"https://www.instagram.com/kollab_dc"} target="_blank"><img src="/instagram.svg" alt="" /></Link>
+                        <Link href={"https://www.youtube.com/@Kollab-independant?uutm_medium=website"} target="_blank"><img src="/youtube.svg" alt="" /></Link>
                     </div>
                 </div>
             </footer>   
