@@ -6,15 +6,22 @@ import { Analytics } from "@vercel/analytics/next";
 import localFont from 'next/font/local';
 
 export const urbanist = localFont({
-  src: [
-    
-  ]
+  src: "../public/font/Urbanist-master/Urbanist-Regular.woff2",
+  display: "swap",
+  variable: "--font-urbanist"
+})
+
+export const gilroy = localFont({
+  src: "../public/font/gilroy/Gilroy-Bold.ttf",
+  display: "swap",
+  variable: "--font-gilroy"
 })
 
 export const metadata: Metadata = {
   title: "Kollab",
   description: "Le site web pour les indépendants et free-lances",
 };
+
 
 export default function RootLayout({
   children,
@@ -33,7 +40,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header/>
-        <main>
+        <main className={urbanist.className}>
           {children}
           <Analytics/>
         </main>
