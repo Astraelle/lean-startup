@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import "./wp-content.css";
 
 // Wordpress
 type WPPost = {
@@ -15,7 +16,7 @@ type PageProps = {
 export default async function ArticlePage({ params }: PageProps){
   const wpParams = await params
   const res = await fetch(
-    `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?slug=${(wpParams.slug)}`,
+    `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?slug=${wpParams.slug}`,
     { next: { revalidate: 60 } }
   );  
   const posts: WPPost[] = await res.json();
@@ -26,13 +27,13 @@ export default async function ArticlePage({ params }: PageProps){
 
   const post = posts[0];
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6 pt-30">
       <h1
-        className="text-3xl font-bold mb-6"
+        className="text-6xl font-bold mb-6"
         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
       />
       <article
-        className="prose max-w-none"
+        className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content.rendered }}
       />
     </div>

@@ -19,33 +19,63 @@ type WPPost = {
   excerpt: { rendered: string };
 };
 
-export default async function ArticlesPage() {
+type PageProps = {
+    searchParams: Promise<{ page?: string }>
+}
 
-  const url = 'https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed';
+export default async function ArticlesPage({ searchParams }: PageProps) {
+
+  const searchParamsPages = await searchParams;
+  const currentPage = parseInt(searchParamsPages.page || "1", 10);
+  const perPage = 6;
+  const url = `https://www.charlie-pierre.com/wordpressback/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${currentPage}`;
   const res = await fetch(url, {
     next: { revalidate: 60 }, // ISR support in App Router
+    cache: 'force-cache',
   });
 
   const posts: WPPost[] = await res.json();
+  const totalPages = parseInt(res.headers.get("x-wp-totalpages") || "1");
+
   return(
     <>
-      <div className="max-w-3xl mx-auto px-4 py-6 bg-black">
-      <h1 className="text-3xl font-bold mb-6">Articles</h1>
-      {posts.map((post) => (
-        <div key={post.id} className="mb-6">
-          <Link href={`/articles/${post.slug}`}>
-            <div
-              className="text-xl font-semibold text-blue-600 hover:underline"
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            />
-          </Link>
-          <div
-            className="text-gray-600"
-            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-          />
+      <section className="pt-20 w-[90%] m-auto">
+        <h2 className="text-3xl font-bold mb-6">Articles du moment</h2>
+        <div className="grid grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <div key={post.id} className="border border-[#1A1B191A]">
+              <img src="/articleimg.jpg" alt="" />
+                <Link href={`/articles/${post.slug}`} prefetch>
+                  <div
+                    className="text-xl font-semibold hover:underline p-10"
+                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                  />
+                </Link>
+              <div
+                className="p-10"
+                dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+              />
+              <Link href={`/articles/${post.slug}`} className="pl-10 text-[#32BF84]" prefetch>Lire l'article {">"}</Link>
+            </div>
+
+          ))}
+
         </div>
-      ))}
-    </div>
+        <div className="flex justify-center mt-10 space-x-2">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <Link
+              key={page}
+              href={`/articles?page=${page}`}
+              className={`px-4 py-2 border rounded ${
+                page === currentPage ? "bg-[#32BF84] text-white" : "text-gray-700 hover:bg-[#32BF84] hover:text-white"
+              }`}
+              prefetch
+            >
+              {page}
+            </Link>
+          ))}
+        </div>
+      </section>
     </>
     
   )
