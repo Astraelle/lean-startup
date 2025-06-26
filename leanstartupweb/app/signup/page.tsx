@@ -41,7 +41,7 @@ export default function SignUp() {
   };
 
   return (
-    <main className="min-h-screen flex">
+    <main className="min-h-screen flex pt-20">
       {/* Côté gauche - Formulaire */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 lg:px-16 bg-white">
         <div className="max-w-md w-full">
