@@ -8,4 +8,5 @@ const imageKit = new ImageKit({
 
 exports.imageKitAuth = async (req, res) =>{
     const authParams = imageKit.getAuthenticationParameters();
+    res.json(authParams);
 }
