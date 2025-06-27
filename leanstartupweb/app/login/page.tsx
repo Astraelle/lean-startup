@@ -38,6 +38,8 @@ export default function LoginPage() {
         setError(err.response.data.message);
       } else {
         setError('Erreur de connexion');
+        console.log(err);
+        
       }
     }
   };

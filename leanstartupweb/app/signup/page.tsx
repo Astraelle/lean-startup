@@ -32,6 +32,8 @@ export default function SignUp() {
         setError(err.response.data.message);
       } else {
         setError('Erreur lors de la création du compte');
+        console.log(err);
+        
       }
     }
   };
