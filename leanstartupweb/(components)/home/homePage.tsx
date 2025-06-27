@@ -240,8 +240,8 @@ export default function HomePage(){
                     <h2 className='text-5xl font-bold'>Qui est derrière Kollab ?</h2>
                     <p>Une équipe d’indépendants, comme toi, qui a connu l’isolement et la galère… et<br/> qui a décidé d’agir.<br/> Kollab est né d’un besoin simple : rester libre, sans être seul·e.</p>
                 </div>
-                <div className='bg-[#D9D9D9] h-[90%] w-[90%]'>
-
+                <div className='h-[90%] w-[90%] grid justify-items-center'>
+                    <video src="/video/explainer.mp4" controls className='w-300'></video>
                 </div>
             </section>
 
