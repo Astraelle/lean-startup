@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel } from "../carrousel/carrousel";
+import FAQ from "../faq/faq";
 
 const images = [
   "/carousel/carousel1.jpg",
@@ -350,7 +351,23 @@ export default function homePageMobile() {
             <h2 className="text-3xl">Qui est derrière Kollab ?</h2>
             <p className="text-[14px] pt-2">Une équipe d’indépendants, comme toi, qui a<br /> connu l’isolement et la galère… et qui a décidé<br /> d’agir.<br />Kollab est né d’un besoin simple : rester libre, sans<br /> être seul·e.</p>
             <div className="grid justify-items-center pt-5">
-                <iframe src="/video/explainer.mp4"></iframe>
+                <video src="/video/explainer.mp4" controls></video>
+            </div>
+        </div>
+      </section>
+      <section className="mt-5">
+        <div className="w-[90%] m-auto">
+            <h2 className="text-3xl">Une question ?<br/> On a sûrement la réponse.</h2>
+            <p>Tu n’es pas le premier à te la poser (et tu ne seras pas le dernier).</p>
+        </div>
+        <FAQ/>
+      </section>
+      <section className="bg-[#1A1B19] h-screen">
+        <div className="w-[90%] m-auto">
+            <div className="grid items-center h-20 -rotate-1 -top-10 ">
+              <p className="bg-[#32BF84] text-white rounded-3xl text-center w-80 h-10 grid items-center text-[14px] font-bold">
+                #JAMAISSEUL
+              </p>
             </div>
         </div>
       </section>
