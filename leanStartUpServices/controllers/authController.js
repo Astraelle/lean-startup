@@ -77,4 +77,3 @@ exports.getUser = async (req, res) => {
         res.status(500).json({ message: "Une erreur est survenue côté serveur" });
     }
 };
-};

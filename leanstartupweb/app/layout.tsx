@@ -42,7 +42,7 @@ export default function RootLayout({
         <Header/>
         <main className={urbanist.className}>
           {children}
-          <Analytics/>
+          {/* <Analytics/> */}
         </main>
         <Footer/>
       </body>
