@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://charlie-pierre.com/leanstartupservices/api',
 });
 
 API.interceptors.request.use((config) => {

@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-export default function homePageMobile(){
-    return(
-        <>
-            <section className="bg-[url(/independanthero.png)] object-center h-screen">
-                
-            </section>
-        </>
-    )
-}
-=======
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel } from "../carrousel/carrousel";
@@ -368,4 +357,3 @@ export default function homePageMobile() {
     </>
   );
 }
->>>>>>> Stashed changes

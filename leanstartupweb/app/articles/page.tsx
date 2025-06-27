@@ -18,6 +18,11 @@ type WPPost = {
   slug: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  _embedded?: {
+    'wp:featuredmedia'?: {
+      source_url: string;
+    }[];
+  }
 };
 
 type PageProps = {
@@ -43,7 +48,10 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
       <section className="pt-20 w-[90%] m-auto">
         <h2 className="text-3xl font-bold mb-6">Articles du moment</h2>
         <div className="grid grid-cols-3 gap-6">
-          {posts.map((post) => (
+          {posts.map((post) => {
+            const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-image.jpg';
+            return(
+            
             <div key={post.id} className="border border-[#1A1B191A]">
               <img src="/articleimg.jpg" alt="" />
                 <Link href={`/articles/${post.slug}`} prefetch>
@@ -59,7 +67,7 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
               <Link href={`/articles/${post.slug}`} className="pl-10 text-[#32BF84]" prefetch>Lire l'article {">"}</Link>
             </div>
 
-          ))}
+          )})}
 
         </div>
         <div className="flex justify-center mt-10 space-x-2">
