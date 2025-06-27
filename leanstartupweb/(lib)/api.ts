@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const API = axios.create({
   baseURL: 'https://charlie-pierre.com/leanstartupservices/api',
+  withCredentials: true
 });
 
 API.interceptors.request.use((config) => {

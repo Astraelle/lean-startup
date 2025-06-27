@@ -10,6 +10,8 @@ const mysql = require('mysql2');
 const app = express();
 const PORT = process.env.PORT || 5000
 
+
+
 app.use(cors({
   origin: 'https://kollab-independant.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
