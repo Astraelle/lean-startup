@@ -365,12 +365,23 @@ export default function homePageMobile() {
       <section className="bg-[#1A1B19] h-screen">
         <div className="w-[90%] m-auto">
             <div className="grid items-center h-20 -rotate-1 -top-10 ">
-              <p className="bg-[#32BF84] text-white rounded-3xl text-center w-80 h-10 grid items-center text-[14px] font-bold">
+              <p className="bg-[#FFAB0F] text-white rounded-3xl text-center w-30 h-10 grid items-center text-[14px] font-bold">
                 #JAMAISSEUL
               </p>
             </div>
+            <h2 className="text-4xl text-white">Deviens Kollaber !</h2>
+            <p className="text-white">Rencontre, échange, collabore.</p>
+            <div className="grid justify-items-center pt-5">
+                <img src="/secmobile.png" alt="" />
+                <Link href="/signup" className="mb-8 pt-10">
+                    <button className="w-80 max-w-sm mx-auto bg-white text-black font-medium py-4 rounded-full hover:bg-gray-800 transition-colors">
+                    Je m'inscris maintenant
+                    </button>
+                </Link>
+            </div>
         </div>
       </section>
+      <div className='bg-[#32BF84] h-8'></div>
     </>
   );
 }
